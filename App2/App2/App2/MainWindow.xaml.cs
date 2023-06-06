@@ -1,5 +1,7 @@
-﻿using Microsoft.UI.Xaml;
+﻿using Microsoft.UI;
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media;
 using System;
 using System.Collections.ObjectModel;
 using Windows.Devices.Enumeration;
@@ -21,13 +23,14 @@ namespace App_ALLCOM
         public MainWindow()
         {
             this.InitializeComponent();
-           // this.ExtendsContentIntoTitleBar = true;  // enable custom titlebar
-           // this.SetTitleBar(AppTitleBar);      // set user ui element as titlebar
+            // this.ExtendsContentIntoTitleBar = true;  // enable custom titlebar
+            // this.SetTitleBar(AppTitleBar);      // set user ui element as titlebar
 
+            for (int i = 0; i < 20; ++i)
+            {
+                Items.Add(new DataList_ItemsDroup(dataBase));
 
-            Items.Add(new DataList_ItemsDroup(dataBase));
-            Items.Add(new DataList_ItemsDroup(dataBase));
-            Items.Add(new DataList_ItemsDroup(dataBase));
+            }
 
         }
 
@@ -102,8 +105,9 @@ namespace App_ALLCOM
 
             // The Content of a TabViewItem is often a frame which hosts a page.
             Frame frame = new Frame();
+            //frame.Background = Colors.AliceBlue;
             newTab.Content = frame;
-            //frame.Navigate(typeof(Page1));
+            frame.Navigate(typeof(Page));
 
             sender.TabItems.Add(newTab);
         }
