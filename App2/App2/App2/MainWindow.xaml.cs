@@ -113,6 +113,16 @@ namespace App_ALLCOM
         {
             sender.TabItems.Remove(args.Tab);
         }
+        private void ChangeColorItem_Click(object sender, RoutedEventArgs e)
+        {
+            // Change the color from red to blue or blue to red.
+
+        }
+        private void MenuFlyoutItem_Click(object sender, RoutedEventArgs e)
+        {
+            // Change the color from red to blue or blue to red.
+
+        }
 
     }
 }

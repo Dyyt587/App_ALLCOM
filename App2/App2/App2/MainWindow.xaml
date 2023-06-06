@@ -18,7 +18,7 @@
             </ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="80"/>
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
@@ -54,7 +54,18 @@
             </NavigationView.MenuItems>
         </NavigationView>
 
-        
+        <TextBlock Grid.Column="2" Grid.Row="0" Text="数据" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="4,0,0,0"/>
+        <AppBarButton  Grid.Column="2" Grid.Row="0" HorizontalAlignment="Right" 
+                       Icon="More" IsCompact="True" ToolTipService.ToolTip="Sort" AutomationProperties.Name="Sort" VerticalAlignment="Center" Margin="0,16,0,0">
+            <AppBarButton.Flyout >
+                <MenuFlyout>
+                    <MenuFlyoutItem Icon="Shop"  Text="全部隐藏" Click="MenuFlyoutItem_Click" Tag="rating"/>
+                    <MenuFlyoutItem Icon="Sort" Text="自动排序" Click="MenuFlyoutItem_Click" Tag="match"/>
+                    <MenuFlyoutItem Icon="Sync" Text="恢复默认颜色" Click="MenuFlyoutItem_Click" Tag="distance"/>
+                </MenuFlyout>
+            </AppBarButton.Flyout>
+        </AppBarButton>
+        <Line Grid.Column="2" Grid.Row="0" Stroke="DarkKhaki"  X2="800"  Y1="70" Y2="70"/>
         <ScrollViewer x:Name="ScrollViewer_DataList" Grid.Column="2" Grid.Row="1" Grid.RowSpan="3"  MinHeight="400" HorizontalAlignment="Right" VerticalAlignment="Stretch" Background="AliceBlue" >
             <ItemsRepeater ItemsSource="{x:Bind Items}" x:Name="DataLists" >
                 <DataTemplate x:DataType="local:DataList_ItemsDroup">
