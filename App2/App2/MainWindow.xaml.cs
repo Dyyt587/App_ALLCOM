@@ -183,5 +183,10 @@ namespace App_ALLCOM
             }
             else { Console.WriteLine("dd"); }
         }
+
+        private void AppBarButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
