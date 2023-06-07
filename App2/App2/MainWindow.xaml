@@ -26,24 +26,15 @@
         <Thumb Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" Width="400" Height="5" Background="Gray"  DragDelta="Thumb_DragDelta"
                VerticalAlignment="Bottom" Margin="0,0,0,100"/>
 
-        <AutoSuggestBox Grid.Column="1" Grid.Row="3"  PlaceholderText="What would you send"  HorizontalAlignment="Stretch" MinWidth="50" Height="32" VerticalAlignment="Bottom"
-                TextChanged="AutoSuggestBox_TextChanged"
-                QuerySubmitted="AutoSuggestBox_QuerySubmitted"
-                SuggestionChosen="AutoSuggestBox_SuggestionChosen">
-            <AutoSuggestBox.QueryIcon>
-                <IconSourceElement>
-                </IconSourceElement>
-                
-            </AutoSuggestBox.QueryIcon>
-        </AutoSuggestBox>
+        <!--中间page Begin-->
+        <RelativePanel BorderBrush="Gray" BorderThickness="1" Grid.Column="1"  Grid.Row="0" Grid.RowSpan="3" Width="700" Background="red">
 
-        <!--<Border Grid.Column="1" Grid.Row="3" Background="red" AllowDrop="True"/>-->
-            
-
-        <TabView Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" Height="600" AddTabButtonClick="TabView_AddTabButtonClick"
-               TabCloseRequested="TabView_TabCloseRequested">
-            <TabViewItem Header="New Table View1" >
-                <!--<DataTemplate>
+            <TabView  Height="300" Width="800"
+                     x:Name="MainTableView"
+                     AddTabButtonClick="TabView_AddTabButtonClick"
+                     TabCloseRequested="TabView_TabCloseRequested">
+                <TabViewItem Header="New Table View1" >
+                    <!--<DataTemplate>
                     <Grid Margin="0,-10,0,0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"/>
@@ -61,22 +52,23 @@
                         </Grid>
                     </Grid>
                 </DataTemplate>-->
-                <TabViewItem.IconSource>
-                    <SymbolIconSource Symbol="Document" />
-                </TabViewItem.IconSource>
+                    <TabViewItem.IconSource>
+                        <SymbolIconSource Symbol="Document" />
+                    </TabViewItem.IconSource>
 
-                <Frame x:Name="ContentFrame" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Background="#FFF9F9F9" Margin="0,0,0,0">
-            <Frame.ContentTransitions>
-                <TransitionCollection>
-                    <NavigationThemeTransition  />
-                </TransitionCollection>
-            </Frame.ContentTransitions>
-        </Frame>
-            </TabViewItem>
-        </TabView>
-
-        <TextBlock x:Name="DataExchange_aera" Grid.Column="1" Grid.Row="3" FontFamily="Segoe UI" 
-                   Width="300" Text="Sample text formatting runs" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,0,38">
+                    <Frame x:Name="ContentFrame" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Background="#FFF9F9F9" Margin="0,0,0,0">
+                        <Frame.ContentTransitions>
+                            <TransitionCollection>
+                                <NavigationThemeTransition  />
+                            </TransitionCollection>
+                        </Frame.ContentTransitions>
+                    </Frame>
+                </TabViewItem>
+            </TabView>
+            <TextBlock  x:Name="DataExchange_aera"  FontFamily="Segoe UI" 
+                        Width="300" Text="Sample text formatting runs" 
+                        HorizontalAlignment="Left" VerticalAlignment="Bottom" 
+                        Margin="0,0,0,0" RelativePanel.Below="MainTableView">
     <LineBreak/>
     <Run Foreground="Gray" FontFamily="Segoe UI Light" FontSize="24">
         Segoe UI Light 24
@@ -89,26 +81,52 @@
     <Run Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Bold">
         Arial Bold 14
     </Run>
-        </TextBlock>
+            </TextBlock>
+            <AutoSuggestBox   PlaceholderText="What would you send"  
+                              MinWidth="500" Width="Auto"
+                              Height="32"
+                              VerticalAlignment="Bottom"
+                              HorizontalAlignment="Stretch"
+                              RelativePanel.Below="DataExchange_aera" 
+                              RelativePanel.AlignBottomWithPanel="True"
+                              RelativePanel.AlignLeftWithPanel="True"
+                              RelativePanel.AlignHorizontalCenterWithPanel="True"
+                              RelativePanel.AlignRightWithPanel="True"
+
+                TextChanged="AutoSuggestBox_TextChanged"
+                QuerySubmitted="AutoSuggestBox_QuerySubmitted"
+                SuggestionChosen="AutoSuggestBox_SuggestionChosen">
+                <AutoSuggestBox.QueryIcon>
+                    <IconSourceElement>
+                    </IconSourceElement>
+
+                </AutoSuggestBox.QueryIcon>
+            </AutoSuggestBox>
+        </RelativePanel>
+
+        <!--中间page End-->
+
         <!--左侧导航栏 Begin-->
-        <NavigationView Grid.Column="0" Grid.Row="0" Grid.RowSpan="5" x:Name="NavigationViewControl" PaneDisplayMode="LeftCompact" Background="#edf5f9" >
+        <NavigationView Grid.Column="0" Grid.Row="0" Grid.RowSpan="5" x:Name="NavigationViewControl" 
+                        PaneDisplayMode="LeftCompact" Background="#edf5f9" 
+                        ItemInvoked="NavigationViewControl_ItemInvoked" SelectionChanged="NavigationViewControl_SelectionChanged">
             <NavigationView.PaneHeader>
                 <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xe756;"/>
             </NavigationView.PaneHeader>
 
             <NavigationView.MenuItems >
-                <NavigationViewItem Content="连接" x:Name="Link">
+                <NavigationViewItem Content="连接" x:Name="Link" Tag="NavigationLink">
                     <NavigationViewItem.Icon>
                         <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xf22c;"/>
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-                <NavigationViewItem Content="命令" x:Name="Commends" >
+                <NavigationViewItem Content="命令" x:Name="Commends" Tag="NavigationCmd">
                     <NavigationViewItem.Icon>
                         <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xe756;"/>
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
                 <NavigationViewItemSeparator />
-                <NavigationViewItem  Content="小部件" x:Name="Parts" >
+                <NavigationViewItem  Content="小部件" x:Name="Parts" Tag="NavigationParts">
                     <NavigationViewItem.Icon>
                         <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xe74c;"/>
                     </NavigationViewItem.Icon>
@@ -116,12 +134,12 @@
             </NavigationView.MenuItems>
 
             <NavigationView.Header>
-                <TextBlock Grid.Column="2" Grid.Row="0"  Grid.RowSpan="2" Text="数据" FontSize="22" HorizontalAlignment="Left"  Margin="0,0,0,0"/>
+                <TextBlock Grid.Column="2" Grid.Row="0"  Grid.RowSpan="2" Text="链接" FontSize="22" 
+                           HorizontalAlignment="Left"  Margin="0,-30,0,0"/>
             </NavigationView.Header>
             <NavigationView.Content>
-                <Border Background="red">
-                    
-                </Border>
+                <Frame x:Name="Navigation_Frame" >
+                </Frame>
             </NavigationView.Content>
         </NavigationView>
         <!--左侧导航栏 End-->

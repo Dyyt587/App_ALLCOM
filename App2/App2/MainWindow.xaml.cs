@@ -1,4 +1,5 @@
-﻿using Microsoft.UI;
+﻿using App2;
+using Microsoft.UI;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
@@ -108,7 +109,7 @@ namespace App_ALLCOM
             Frame frame = new Frame();
             //frame.Background = Colors.AliceBlue;
             newTab.Content = frame;
-            frame.Navigate(typeof(Page));
+            frame.Navigate(typeof(NavigationPage_Link));
 
             sender.TabItems.Add(newTab);
         }
@@ -132,13 +133,55 @@ namespace App_ALLCOM
         {
             var thumb = sender as Thumb;
             //var grid = thumb.Parent as Grid; Send_Grid
-            var grid = DataExchange_aera; 
+            var grid = DataExchange_aera;
             if (grid != null)
             {
                 //grid.Width = Math.Max(grid.Width + e.HorizontalChange, thumb.DesiredSize.Width);
-                grid.Height=Math.Min(grid.ActualHeight + e.VerticalChange, thumb.DesiredSize.Height);
-               // thumb.Translation(2,2,22,0);
+                grid.Height = Math.Min(grid.ActualHeight + e.VerticalChange, thumb.DesiredSize.Height);
+                // thumb.Translation(2,2,22,0);
             }
+        }
+
+        private void NavigationViewControl_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
+        {
+
+            if (args.IsSettingsInvoked)
+            {
+
+            }
+            else
+            {
+
+
+            }
+
+
+
+
+
+        }
+
+        private void NavigationViewControl_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
+        {
+            NavigationViewItem Item = args.SelectedItem as NavigationViewItem;
+
+            string itemid = Item.Tag.ToString();
+            // The Content of a TabViewItem is often a frame which hosts a page.
+            //frame.Background = Colors.AliceBlue;
+            // frame.Navigate(typeof(NavigationPage_Link));
+            if (Link.Tag.ToString().Equals(itemid))
+            {
+                Navigation_Frame.Navigate(typeof(NavigationPage_Link));
+            }
+            else if (Commends.Tag.ToString().Equals(itemid))
+            {
+                Navigation_Frame.Navigate(typeof(NavigationPage_Cmd));
+            }
+            else if (Parts.Tag.ToString().Equals(itemid))
+            {
+                Navigation_Frame.Navigate(typeof(NavigationPage_Parts));
+            }
+            else { Console.WriteLine("dd"); }
         }
     }
 }
