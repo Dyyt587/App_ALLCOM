@@ -9,7 +9,7 @@
 
 
 
-    <Grid Background="#edf5f9">
+    <Grid x:Name="Grid0" Background="#edf5f9">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition  x:Name="Grid1" Width="1*" MinWidth="200" MaxWidth="300"/>
@@ -20,11 +20,13 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition Height="40"/>
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="10"/>
-            <RowDefinition Height="1*" MinHeight="32" MaxHeight="200"/>
+            <RowDefinition  MinHeight="10" MaxHeight="1000"/>
+            <!--<RowDefinition x:Name="Send_Grid" Height="1*" MinHeight="32" MaxHeight="200"/>-->
         </Grid.RowDefinitions>
-        <AutoSuggestBox Grid.Column="1" Grid.Row="4"  PlaceholderText="What would you send"  HorizontalAlignment="Stretch" MinWidth="50" Height="32" VerticalAlignment="Bottom"
+        <Thumb Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" Width="400" Height="5" Background="Gray"  DragDelta="Thumb_DragDelta"
+               VerticalAlignment="Bottom" Margin="0,0,0,100"/>
+
+        <AutoSuggestBox Grid.Column="1" Grid.Row="3"  PlaceholderText="What would you send"  HorizontalAlignment="Stretch" MinWidth="50" Height="32" VerticalAlignment="Bottom"
                 TextChanged="AutoSuggestBox_TextChanged"
                 QuerySubmitted="AutoSuggestBox_QuerySubmitted"
                 SuggestionChosen="AutoSuggestBox_SuggestionChosen">
@@ -35,9 +37,9 @@
             </AutoSuggestBox.QueryIcon>
         </AutoSuggestBox>
 
-        <Border Grid.Column="1" Grid.Row="3" Background="red" AllowDrop="True">
+        <!--<Border Grid.Column="1" Grid.Row="3" Background="red" AllowDrop="True"/>-->
             
-        </Border>
+
         <TabView Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" Height="600" AddTabButtonClick="TabView_AddTabButtonClick"
                TabCloseRequested="TabView_TabCloseRequested">
             <TabViewItem Header="New Table View1" >
@@ -73,7 +75,8 @@
             </TabViewItem>
         </TabView>
 
-        <TextBlock Grid.Column="1" Grid.Row="4" FontFamily="Segoe UI" Width="400" Text="Sample text formatting runs" HorizontalAlignment="Left">
+        <TextBlock x:Name="DataExchange_aera" Grid.Column="1" Grid.Row="3" FontFamily="Segoe UI" 
+                   Width="300" Text="Sample text formatting runs" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,0,38">
     <LineBreak/>
     <Run Foreground="Gray" FontFamily="Segoe UI Light" FontSize="24">
         Segoe UI Light 24
@@ -92,6 +95,7 @@
             <NavigationView.PaneHeader>
                 <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xe756;"/>
             </NavigationView.PaneHeader>
+
             <NavigationView.MenuItems >
                 <NavigationViewItem Content="连接" x:Name="Link">
                     <NavigationViewItem.Icon>
@@ -110,6 +114,15 @@
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
             </NavigationView.MenuItems>
+
+            <NavigationView.Header>
+                <TextBlock Grid.Column="2" Grid.Row="0"  Grid.RowSpan="2" Text="数据" FontSize="22" HorizontalAlignment="Left"  Margin="0,0,0,0"/>
+            </NavigationView.Header>
+            <NavigationView.Content>
+                <Border Background="red">
+                    
+                </Border>
+            </NavigationView.Content>
         </NavigationView>
         <!--左侧导航栏 End-->
 

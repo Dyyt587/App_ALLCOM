@@ -1,6 +1,7 @@
 ﻿using Microsoft.UI;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.UI.Xaml.Media;
 using System;
 using System.Collections.ObjectModel;
@@ -127,6 +128,17 @@ namespace App_ALLCOM
             // Change the color from red to blue or blue to red.
 
         }
-
+        private void Thumb_DragDelta(object sender, DragDeltaEventArgs e)
+        {
+            var thumb = sender as Thumb;
+            //var grid = thumb.Parent as Grid; Send_Grid
+            var grid = DataExchange_aera; 
+            if (grid != null)
+            {
+                //grid.Width = Math.Max(grid.Width + e.HorizontalChange, thumb.DesiredSize.Width);
+                grid.Height=Math.Min(grid.ActualHeight + e.VerticalChange, thumb.DesiredSize.Height);
+               // thumb.Translation(2,2,22,0);
+            }
+        }
     }
 }
