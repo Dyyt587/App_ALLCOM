@@ -76,6 +76,9 @@ namespace App_ALLCOM
             if (args.Reason == AutoSuggestionBoxTextChangeReason.UserInput)
             {
                 //Set the ItemsSource to be your filtered dataset
+
+              
+
                 //sender.ItemsSource = dataset;
             }
         }
@@ -91,11 +94,16 @@ namespace App_ALLCOM
         {
             if (args.ChosenSuggestion != null)
             {
+                sender.Text = "gdyuwuywgyu\r\nfef 0x2028 ";
+
                 // User selected an item from the suggestion list, take an action on it here.
             }
             else
             {
                 // Use args.QueryText to determine what to do.
+                sender.Text = "gdyuwuywgyu\r\nfef 0x2028 ";
+
+
             }
         }
         // Add a new Tab to the TabView

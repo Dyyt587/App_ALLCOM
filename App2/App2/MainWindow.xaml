@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:App_ALLCOM"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:controls="using:CommunityToolkit.WinUI.UI.Controls"
     mc:Ignorable="d">
 
 
@@ -12,26 +12,57 @@
     <Grid x:Name="Grid0" Background="#edf5f9">
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition  x:Name="Grid1" Width="1*" MinWidth="200" MaxWidth="300"/>
-            <ColumnDefinition Width="3*" />
-            <ColumnDefinition  x:Name="Grid2" Width="1*" MinWidth="180" MaxWidth="200" >
+            <ColumnDefinition  x:Name="Grid1" Width="1*" MinWidth="60" MaxWidth="300"/>
+            <ColumnDefinition Width="5" />
+            <ColumnDefinition Width="5*" MinWidth="180" />
+            <ColumnDefinition Width="5" />
+            <ColumnDefinition  x:Name="Grid2" Width="1*" MinWidth="180"  >
             </ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition  MinHeight="10" MaxHeight="1000"/>
-            <!--<RowDefinition x:Name="Send_Grid" Height="1*" MinHeight="32" MaxHeight="200"/>-->
-        </Grid.RowDefinitions>
+        <controls:GridSplitter  Grid.Column="1" Background="#edf5f9" GripperCursor="SizeWestEast" CursorBehavior="ChangeOnSplitterHover" Opacity="1" Margin="0,0,0,0">
+        </controls:GridSplitter>
+        <controls:GridSplitter  Grid.Column="3" Background="#edf5f9" GripperCursor="SizeWestEast" CursorBehavior="ChangeOnSplitterHover" Opacity="1" Margin="0,0,0,0">
+        </controls:GridSplitter>
 
-        <!--中间page Begin-->
-        <RelativePanel BorderBrush="Gray" BorderThickness="1" Grid.Column="1"  Grid.Row="0" Grid.RowSpan="3" Width="Auto" >
+            <!--中间page Begin-->
+        <Grid BorderBrush="Gray" BorderThickness="1" Grid.Column="2"  Grid.Row="0" Grid.RowSpan="3" Width="Auto" >
+            <Grid.RowDefinitions >
+                <RowDefinition  MinHeight="10" MaxHeight="2000"/>
+                <RowDefinition Height="47"/>
+                <RowDefinition  MinHeight="10" MaxHeight="2000"/>
+                <RowDefinition  Height="64"/>
 
-            <TabView  Height="500" Width="Auto" MinHeight="200" 
+            </Grid.RowDefinitions>
+            <controls:GridSplitter  Grid.Row="1" Background="#edf5f9" GripperCursor="SizeNorthSouth" CursorBehavior="ChangeOnSplitterHover" Opacity="1" Margin="0,0,0,0">
+                <controls:GridSplitter.Element>
+                    <Grid Background="#ffffff">
+                        <CommandBar x:Name="MainPageCommendBar" Margin="0,0,0,-20" >
+                            <AppBarToggleButton Icon="Shuffle" Label="Shuffle" Click="AppBarButton_Click" />
+                            <AppBarToggleButton Icon="RepeatAll" Label="Repeat" Click="AppBarButton_Click"/>
+                            <AppBarSeparator/>
+                            <AppBarButton Icon="Back" Label="Back" Click="AppBarButton_Click"/>
+                            <AppBarButton Icon="Stop" Label="Stop" Click="AppBarButton_Click"/>
+                            <AppBarButton Icon="Play" Label="Play" Click="AppBarButton_Click"/>
+                            <AppBarButton Icon="Forward" Label="Forward" Click="AppBarButton_Click"/>
+
+                            <CommandBar.SecondaryCommands>
+                                <AppBarButton Label="Like" Click="AppBarButton_Click"/>
+                                <AppBarButton Label="Dislike" Click="AppBarButton_Click"/>
+                            </CommandBar.SecondaryCommands>
+
+                            <CommandBar.Content>
+                                <TextBlock Text="Now playing..." Margin="12,14"/>
+                            </CommandBar.Content>
+                        </CommandBar>
+                    </Grid>
+                </controls:GridSplitter.Element>
+
+            </controls:GridSplitter>
+
+            <TabView  Height="Auto" Width="Auto" MinHeight="200" 
                      x:Name="MainTableView"
-                      RelativePanel.AlignHorizontalCenterWithPanel="True"
-                      RelativePanel.AlignLeftWithPanel="True"
-                      RelativePanel.AlignRightWithPanel="True"
+                      Grid.Row="0"
+                      VerticalAlignment="Stretch"
                      AddTabButtonClick="TabView_AddTabButtonClick"
                      TabCloseRequested="TabView_TabCloseRequested">
                 <TabViewItem Header="New Table View1" >
@@ -66,38 +97,20 @@
                     </Frame>
                 </TabViewItem>
             </TabView>
-            <CommandBar x:Name="MainPageCommendBar" RelativePanel.Below="MainTableView" CanDrag="True"
-                        AllowDrop="True"
-                >
-                <AppBarToggleButton Icon="Shuffle" Label="Shuffle" Click="AppBarButton_Click" />
-                <AppBarToggleButton Icon="RepeatAll" Label="Repeat" Click="AppBarButton_Click"/>
-                <AppBarSeparator/>
-                <AppBarButton Icon="Back" Label="Back" Click="AppBarButton_Click"/>
-                <AppBarButton Icon="Stop" Label="Stop" Click="AppBarButton_Click"/>
-                <AppBarButton Icon="Play" Label="Play" Click="AppBarButton_Click"/>
-                <AppBarButton Icon="Forward" Label="Forward" Click="AppBarButton_Click"/>
 
-                <CommandBar.SecondaryCommands>
-                    <AppBarButton Label="Like" Click="AppBarButton_Click"/>
-                    <AppBarButton Label="Dislike" Click="AppBarButton_Click"/>
-                </CommandBar.SecondaryCommands>
-
-                <CommandBar.Content>
-                    <TextBlock Text="Now playing..." Margin="12,14"/>
-                </CommandBar.Content>
-            </CommandBar>
             <TextBlock  x:Name="DataExchange_aera"  FontFamily="Segoe UI" 
                         Width="300" Text="Sample text formatting runs" CanBeScrollAnchor="True"
-                        HorizontalAlignment="Left" VerticalAlignment="Bottom" 
-                        Margin="0,0,0,0" RelativePanel.Below="MainPageCommendBar">
+                        HorizontalAlignment="Left" VerticalAlignment="Top" 
+                        Margin="0,0,0,0"                       Grid.Row="2"
+>
                 <LineBreak/>
                 <Run Foreground="Gray" FontFamily="Segoe UI Light" FontSize="24">
-        Segoe UI Light 24
-    </Run>
+                    Segoe UI Light 24
+                </Run>
                  <LineBreak/>
                 <Run Foreground="Teal" FontFamily="Georgia" FontSize="18" FontStyle="Italic">
-        Georgia Italic 18
-    </Run>
+                    Georgia Italic 18
+                </Run>
                 <LineBreak/>
                 <Run Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Bold">
                     Arial Bold 14
@@ -105,26 +118,17 @@
             </TextBlock>
             <AutoSuggestBox   PlaceholderText="What would you send"  
                               MinWidth="500" Width="Auto"
-                              Height="32"
+                              Height="64"  Grid.Row="3"
+                              
                               VerticalAlignment="Bottom"
                               HorizontalAlignment="Stretch"
-                              RelativePanel.Below="DataExchange_aera" 
-                              RelativePanel.AlignBottomWithPanel="True"
-                              RelativePanel.AlignLeftWithPanel="True"
-                              RelativePanel.AlignHorizontalCenterWithPanel="True"
-                              RelativePanel.AlignRightWithPanel="True"
-
                 TextChanged="AutoSuggestBox_TextChanged"
                 QuerySubmitted="AutoSuggestBox_QuerySubmitted"
                 SuggestionChosen="AutoSuggestBox_SuggestionChosen">
-                <AutoSuggestBox.QueryIcon>
-                    <IconSourceElement>
-                    </IconSourceElement>
-
-                </AutoSuggestBox.QueryIcon>
+                <TextBox AcceptsReturn="False"/>
             </AutoSuggestBox>
-        </RelativePanel>
-
+            
+        </Grid>
         <!--中间page End-->
 
         <!--左侧导航栏 Begin-->
@@ -166,8 +170,14 @@
         <!--左侧导航栏 End-->
 
         <!--右侧数据展示栏 Begin-->
-        <TextBlock Grid.Column="2" Grid.Row="0"  Grid.RowSpan="2" Text="数据" FontSize="22" HorizontalAlignment="Left"  Margin="4,20,0,0"/>
-        <AppBarButton  Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" HorizontalAlignment="Right" Margin="0,12,0,0"
+        <Grid Grid.Column="4" Grid.Row="0"  Grid.RowSpan="4">
+            <Grid.RowDefinitions >
+                <RowDefinition  Height="30"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition  MinHeight="20" />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Column="4" Grid.Row="0"  Grid.RowSpan="2" Text="数据" FontSize="22" HorizontalAlignment="Left"  Margin="4,20,0,0"/>
+        <AppBarButton  Grid.Column="4" Grid.Row="0" Grid.RowSpan="2" HorizontalAlignment="Right" Margin="0,12,0,0"
                        Width="53" Height="65"
                        Icon="More" IsCompact="True" ToolTipService.ToolTip="Sort" AutomationProperties.Name="Sort" 
                         >
@@ -179,8 +189,8 @@
                 </MenuFlyout>
             </AppBarButton.Flyout>
         </AppBarButton>
-        <Line Grid.Column="2" Grid.Row="1" Stroke="DarkKhaki"  X2="800"  Y1="29" Y2="29"/>
-        <ScrollViewer x:Name="ScrollViewer_DataList" Grid.Column="2" Grid.Row="2" Grid.RowSpan="3"  
+        <Line Grid.Column="4" Grid.Row="1" Stroke="DarkKhaki"  X2="800"  Y1="29" Y2="29"/>
+        <ScrollViewer x:Name="ScrollViewer_DataList" Grid.Column="4" Grid.Row="2" Grid.RowSpan="3"  
                       MinHeight="300"  HorizontalAlignment="Right"  
                       Background="AliceBlue" Margin="0,0,0,0">
             <ItemsRepeater ItemsSource="{x:Bind Items}" x:Name="DataLists" >
@@ -256,7 +266,7 @@
             </ItemsRepeater>
         </ScrollViewer>
         <!--右侧数据展示栏 End-->
-
+        </Grid>
     </Grid>
 
 </Window>
