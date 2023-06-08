@@ -12,7 +12,7 @@
     <Grid x:Name="Grid0" Background="#edf5f9">
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition  x:Name="Grid1" Width="1*" MinWidth="60" MaxWidth="300"/>
+            <ColumnDefinition  x:Name="Grid1" Width="1*" MinWidth="180" MaxWidth="300"/>
             <ColumnDefinition Width="5" />
             <ColumnDefinition Width="5*" MinWidth="180" />
             <ColumnDefinition Width="5" />
@@ -125,7 +125,8 @@
                 TextChanged="AutoSuggestBox_TextChanged"
                 QuerySubmitted="AutoSuggestBox_QuerySubmitted"
                 SuggestionChosen="AutoSuggestBox_SuggestionChosen">
-                <TextBox AcceptsReturn="False"/>
+                <TextBox AcceptsReturn="False" Background="Red" />
+                
             </AutoSuggestBox>
             
         </Grid>
