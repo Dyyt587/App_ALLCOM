@@ -101,14 +101,14 @@ namespace App2
 
                 for (var i = 0; i < 15; i++)
                 {
-                    collection.Add(new ListItemData { Text = "List item " + i.ToString(), Command = deleteCommand });
+                    collection.Add(new ListItemData { Text = "New Cmd" + i.ToString(), Command = deleteCommand });
                 }
             }
             else
             {
                 for (var i = 0; i < 15; i++)
                 {
-                    collection.Add(new ListItemData { Text = "List item " + i.ToString(), Command = null });
+                    collection.Add(new ListItemData { Text = "New Cmd " + i.ToString(), Command = null });
                 }
             }
         }

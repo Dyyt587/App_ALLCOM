@@ -7,9 +7,65 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Resources>
+        <CommandBarFlyout Placement="Right" x:Name="CommandBarFlyout1" >
+            <AppBarButton Label="Share" Icon="Share" ToolTipService.ToolTip="Share" Click="OnElementClicked" />
+            <AppBarButton Label="Save" Icon="Save" ToolTipService.ToolTip="Save" Click="OnElementClicked" />
+            <AppBarButton Label="Delete" Icon="Delete" ToolTipService.ToolTip="Delete" Click="OnElementClicked" />
 
-    <Grid Background="Black">
+        </CommandBarFlyout>
+    </Page.Resources>
 
+
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32" />
+            <RowDefinition Height="32"/>
+            <RowDefinition Height="32"/>
+            <RowDefinition Height="32"/>
+            <RowDefinition Height="32"/>
+            <RowDefinition Height="32"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="1" Text="链接接口" 
+                           FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <ComboBox Grid.Row="1"  ItemsSource="{x:Bind LinkDatas}" PlaceholderText="UART"  
+                      Width="Auto" TextSubmitted="ComboBox_TextSubmitted_boud"
+                      HorizontalAlignment="Right"/>
+        <TextBlock Grid.Row="2" Text="波特率"  
+                           FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <ComboBox Grid.Row="2" IsEditable="True" ItemsSource="{x:Bind BoudDatas}" 
+                  PlaceholderText="115200"  
+                  Width="Auto" TextSubmitted="ComboBox_TextSubmitted_boud"
+                  HorizontalAlignment="Right"/>
+        <TextBlock Grid.Row="3" Text="流控" 
+                           FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <ComboBox Grid.Row="3"  ItemsSource="{x:Bind FluidControlDatas}" PlaceholderText="none"
+                      Width="Auto" TextSubmitted="ComboBox_TextSubmitted_boud"
+                      HorizontalAlignment="Right"/>
+        <TextBlock Grid.Row="4" Text="数据位数"  
+                           FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <ComboBox Grid.Row="4"  ItemsSource="{x:Bind DataLengthDatas}" PlaceholderText="8"
+                      Width="Auto" TextSubmitted="ComboBox_TextSubmitted_boud"
+                      HorizontalAlignment="Right"/>
+        <TextBlock Grid.Row="5" Text="校验位"  
+                           FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <ComboBox Grid.Row="5"  ItemsSource="{x:Bind VerifyDatas}" PlaceholderText="1"
+                      Width="Auto" TextSubmitted="ComboBox_TextSubmitted_boud"
+                      HorizontalAlignment="Right"/>
+
+        <ListView Grid.Row="6" x:Name="ListViewLink"  Width="Auto" ItemsSource="{x:Bind LinkItemsData}"
+                          IsItemClickEnabled="True" SelectionMode="Single" ContextRequested="ListViewLink_ContextRequested" >
+            <DataTemplate x:DataType="x:String" >
+
+                <Grid Background="red">
+
+                </Grid>
+
+
+            </DataTemplate>
+        </ListView>
 
     </Grid>
 </Page>

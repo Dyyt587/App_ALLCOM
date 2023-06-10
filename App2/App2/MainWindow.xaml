@@ -25,7 +25,7 @@
         </controls:GridSplitter>
 
             <!--中间page Begin-->
-        <Grid BorderBrush="Gray" BorderThickness="1" Grid.Column="2"  Grid.Row="0" Grid.RowSpan="3" Width="Auto" >
+        <Grid  Grid.Column="2"  Grid.Row="0" Grid.RowSpan="3" Width="Auto" >
             <Grid.RowDefinitions >
                 <RowDefinition  MinHeight="10" MaxHeight="2000"/>
                 <RowDefinition Height="47"/>
@@ -199,7 +199,7 @@
                     <Grid Margin="0,0,0,0" >
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="12"/>
-                            <ColumnDefinition Width="220"/>
+                            <ColumnDefinition />
 
                         </Grid.ColumnDefinitions>
                         <Rectangle   Fill="Blue"
@@ -209,21 +209,18 @@
                             StrokeThickness="3"
                                      RadiusX="3"
                                      RadiusY="3" />
-                        <Expander  x:Name="expander1"  Grid.Column="1" Header="{x:Bind Data  }" Width="190" >
+                        <Expander  x:Name="expander1"  Grid.Column="1" Header="{x:Bind Data  }" Width="Auto" HorizontalAlignment="Stretch" >
                             <Expander.Content>
-                                <Grid Background="Red">
+                                <Grid   HorizontalAlignment="Stretch" Width="Auto" MinWidth="140" Margin="-10,0,0,0">
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="32"/>
                                         <RowDefinition Height="1*"/>
                                         <RowDefinition Height="1*"/>
                                     </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions >
-                                        <ColumnDefinition Width="80" />
-                                        <ColumnDefinition Width="80"/>
-                                    </Grid.ColumnDefinitions>
 
-                                    <TextBlock Text="颜色" HorizontalAlignment="Left"/>
-                                    <SplitButton Grid.Column="1" ToolTipService.ToolTip="数据显示颜色"
+
+                                    <TextBlock Grid.Row="0" Text="颜色" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                    <SplitButton Grid.Row="0" ToolTipService.ToolTip="数据显示颜色" Width="Auto"
                                                     Click="BrushButtonClick" HorizontalAlignment="Right">
                                         <Border x:Name="SelectedColorBorder" Width="20" Height="20"/>
                                         <SplitButton.Flyout>
@@ -251,8 +248,8 @@
 
                                     <TextBlock Grid.Row="1" Text="小数位数"/>
                                     <ComboBox Grid.Row="1" Grid.Column="1" ToolTipService.ToolTip="数据显示小数位数" ItemsSource="{x:Bind decimalDigits}"
-                                              x:Name="FontsCombo" PlaceholderText="6" HorizontalAlignment="Right" 
-                                              IsEditable="True"   Width="80" TextSubmitted="ComboBox_TextSubmitted">
+                                              x:Name="FontsCombo" PlaceholderText="6" HorizontalAlignment="Right" Width="Auto"
+                                              IsEditable="True"    TextSubmitted="ComboBox_TextSubmitted">
 
                                     </ComboBox>
 

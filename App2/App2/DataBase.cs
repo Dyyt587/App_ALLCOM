@@ -58,6 +58,7 @@ namespace App_ALLCOM
                             instance._DecimalDigits.Add(Convert.ToString(i));
 
                         }
+
                     }
                 }
             }
