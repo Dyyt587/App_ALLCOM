@@ -1,0 +1,89 @@
+﻿<Page
+    x:Class="ALLCOM.NavigationPage_Parts"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ALLCOM"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <ScrollViewer Background="Azure" ZoomMode="Enabled" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+            IsTabStop="True" IsVerticalScrollChainingEnabled="True" VerticalScrollBarVisibility="Auto">
+        <StackPanel>
+            <Grid Width="160" Height="160" Background="#9c9a9a" >
+                <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Azure" BorderThickness="0" Click="Button_Click">
+                    <Button Width="136" Height="36" HorizontalAlignment="Center" VerticalAlignment="Center"
+                        CanDrag="True" AllowDrop="True"  >
+                        <Button.Content>
+                            <TextBlock Text="button" HorizontalTextAlignment="Center" IsColorFontEnabled="True" TextLineBounds="Tight"/>
+                        </Button.Content>
+
+                    </Button>
+                </Button>
+            </Grid>
+            
+            <Grid Width="160" Height="160" Background="#edf5f9">
+                <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Azure" BorderThickness="0" Click="Button_Click">
+                    <RepeatButton Content="Click and hold" />
+                </Button>
+            </Grid>
+            
+            <Grid Width="160" Height="160" Background="AntiqueWhite">
+                <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Azure" BorderThickness="0" Click="Button_Click">
+                    <RadioButtons Header="Options:">
+                        <RadioButton Content="Option 1" />
+                        <RadioButton Content="Option 2" />
+                        <RadioButton Content="Option 3" />
+                    </RadioButtons>
+                </Button>
+            </Grid>
+            
+            <Grid Width="160" Height="160" Background="Beige">
+                <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Azure" BorderThickness="0" Click="Button_Click">
+                    <ToggleButton Content="ToggleButton"  />
+                </Button>
+            </Grid>
+            
+            <Grid Width="160" Height="160" Background="AntiqueWhite">
+                <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Azure" BorderThickness="0" Click="Button_Click">
+                    <Slider AutomationProperties.Name="Slider with ticks" 
+                    TickFrequency="20" Width="120"
+                    TickPlacement="Outside"
+                     SnapsTo="StepValues" />
+                </Button>
+            </Grid>
+
+            <Grid Width="160" Height="160" Background="Bisque">
+                <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Azure" BorderThickness="0" Click="Button_Click">
+
+                    <ProgressRing Width="75" Height="75" Value="78"
+                        IsIndeterminate="False"
+                        Background="LightGray"/>
+                </Button>
+            </Grid>
+            
+            <Grid Width="160" Height="160" Background="AntiqueWhite">
+                <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Azure" BorderThickness="0" Click="Button_Click">
+
+                    <ToggleSwitch AutomationProperties.Name="simple ToggleSwitch" 
+                              Header="Toggle work" OffContent="Do work" OnContent="Working" IsOn="True" 
+                              HorizontalAlignment="Left"  VerticalAlignment="Center" />
+                </Button>
+            </Grid>
+            
+            <Grid Width="160" Height="160" Background="AntiqueWhite">
+                <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Azure" BorderThickness="0" Click="Button_Click">
+                    <NumberBox x:Name="NumberBoxSpinButtonPlacementExample"
+                           Width="140" Height="59"
+                    Header="Enter an integer:"
+                    Value="1"
+                    SpinButtonPlacementMode="Inline"
+                    SmallChange="1"
+                    LargeChange="100" />
+                </Button>
+            </Grid>
+            
+        </StackPanel>
+    </ScrollViewer>
+</Page>

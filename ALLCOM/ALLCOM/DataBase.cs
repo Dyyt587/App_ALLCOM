@@ -6,14 +6,19 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.UI.Xaml.Controls;
 
-namespace App_ALLCOM
+namespace ALLCOM
 {
     internal class DataBase
     {
         public ObservableCollection<SolidColorBrush> _ColorOptions; //数据颜色
         public ObservableCollection<String> _DecimalDigits;
         private static DataBase instance = null;
+
+        public TabViewItem usingTablePage = null;
+        public Canvas usingTableViewCanvas = null;
+
 
         // 定义一个静态变量来保存类的实例
 
@@ -66,4 +71,3 @@ namespace App_ALLCOM
         }
     }
 }
-

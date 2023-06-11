@@ -19,7 +19,7 @@ using Windows.Foundation.Collections;
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
 
-namespace App_ALLCOM
+namespace ALLCOM
 {
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
@@ -32,6 +32,8 @@ namespace App_ALLCOM
         /// </summary>
         public App()
         {
+            //Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("@31362e342e30iBbXPJ9uzNE2dIs3NTnn7yIz7LF94yrP5Ysxrn9vB6A=");
+
             this.InitializeComponent();
         }
 

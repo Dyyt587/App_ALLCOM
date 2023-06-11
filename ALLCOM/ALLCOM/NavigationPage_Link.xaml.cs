@@ -11,14 +11,13 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
-using System.Windows.Input;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
 
-namespace App2
+namespace ALLCOM
 {
     public class LinkItemsDatas
     {
@@ -26,6 +25,9 @@ namespace App2
         //public ICommand Command { get; set; }
     }
 
+    /// <summary>
+    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// </summary>
     public sealed partial class NavigationPage_Link : Page
     {
         public ObservableCollection<String> BoudDatas = new ObservableCollection<String>();
@@ -73,7 +75,7 @@ namespace App2
         private void ShowMenu(bool isTransient)
         {
             FlyoutShowOptions myOption = new FlyoutShowOptions();
-            myOption.ShowMode =  FlyoutShowMode.Transient ;
+            myOption.ShowMode = FlyoutShowMode.Transient;
             CommandBarFlyout1.ShowAt(ListViewLink, myOption);
         }
 
@@ -95,6 +97,11 @@ namespace App2
         }
 
         private void OnElementClicked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
 
         }

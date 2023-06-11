@@ -1,12 +1,10 @@
-﻿using App_ALLCOM;
-using Microsoft.UI.Xaml;
+﻿using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
-using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -21,28 +19,25 @@ using Windows.Foundation.Metadata;
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
 
-namespace App2
+namespace ALLCOM
 {
     public class ListItemData
     {
         public string Text { get; set; }
         public ICommand Command { get; set; }
     }
+    /// <summary>
+    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// </summary>
     public sealed partial class NavigationPage_Cmd : Page
     {
-        //ObservableCollection<CmdListItemData> Items = new ObservableCollection<CmdListItemData>();
-        //DataBase dataBase = DataBase.GetInstance();
         ObservableCollection<ListItemData> collection = new ObservableCollection<ListItemData>();
 
         public NavigationPage_Cmd()
         {
             ControlExample_Loaded();
-            this.InitializeComponent();
-            //for (int i = 0; i < 20; ++i)
-            //{
-            //    Items.Add(new CmdListItemData());
 
-            //}
+            this.InitializeComponent();
         }
         private void DeleteCommand_ExecuteRequested(XamlUICommand sender, ExecuteRequestedEventArgs args)
         {
@@ -97,7 +92,7 @@ namespace App2
                 var deleteCommand = new StandardUICommand(StandardUICommandKind.Delete);
                 deleteCommand.ExecuteRequested += DeleteCommand_ExecuteRequested;
 
-               // DeleteFlyoutItem.Command = deleteCommand;
+                // DeleteFlyoutItem.Command = deleteCommand;
 
                 for (var i = 0; i < 15; i++)
                 {
@@ -128,4 +123,3 @@ namespace App2
         }
     }
 }
-

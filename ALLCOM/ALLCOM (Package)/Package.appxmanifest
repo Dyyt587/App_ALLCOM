@@ -7,13 +7,13 @@
   IgnorableNamespaces="uap rescap">
 
   <Identity
-    Name="6f5e2daf-44fa-44b0-9b14-ba5cabdc4e45"
-    Publisher="CN=LENOVO"
+    Name="caefcc42-19ce-413a-8534-1bd4be5ab7da"
+    Publisher="CN=Administrator"
     Version="1.0.0.0" />
 
   <Properties>
-    <DisplayName>App2 (Package)</DisplayName>
-    <PublisherDisplayName>LENOVO</PublisherDisplayName>
+    <DisplayName>ALLCOM (Package)</DisplayName>
+    <PublisherDisplayName>Administrator</PublisherDisplayName>
     <Logo>Images\StoreLogo.png</Logo>
   </Properties>
 
@@ -31,8 +31,8 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="$targetentrypoint$">
       <uap:VisualElements
-        DisplayName="App2 (Package)"
-        Description="App2 (Package)"
+        DisplayName="ALLCOM (Package)"
+        Description="ALLCOM (Package)"
         BackgroundColor="transparent"
         Square150x150Logo="Images\Square150x150Logo.png"
         Square44x44Logo="Images\Square44x44Logo.png">
